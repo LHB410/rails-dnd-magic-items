@@ -32,7 +32,7 @@ class MagicItemsController < ApplicationController
       redirect_to magic_items_path
     else
       @parameter = params[:search].downcase
-      @results = MagicItem.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+      @results = index.where("lower(name) LIKE :search", search: "%#{@parameter}%")
     end
   end
 
