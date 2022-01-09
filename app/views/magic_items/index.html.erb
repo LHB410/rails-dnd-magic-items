@@ -1,0 +1,9 @@
+<div class="container">
+  <% @magic_items.each do |item| %>
+    <h1><%= item.name %></h1>
+    <h2> <%= item.item_type %></h2>
+    <p> <%= item.description %> <p>
+    <h6> <%= item.attunement %>
+  <% end %>
+</div>
+
