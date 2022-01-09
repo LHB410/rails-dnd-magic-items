@@ -1,9 +1,15 @@
-<div class="container">
+<div class="container my-4 py-2">
   <% @magic_items.each do |item| %>
-    <h1><%= item.name %></h1>
-    <h2> <%= item.item_type %></h2>
-    <p> <%= item.description %> <p>
-    <h6> <%= item.attunement %>
+    <div class="card">
+      <h2><%= item.name %></h2>
+      <h3> <%= item.item_type %></h3>
+      <p> <%= item.description.truncate(300) %> <p>
+      <h6> <%= item.attunement.capitalize %>
+      <br>
+      <%= link_to "More..", magic_item_path(item), class: "btn btn-info my-2" %>
+    </div>
   <% end %>
+
 </div>
+
 

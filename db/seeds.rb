@@ -20,17 +20,7 @@ item_info = JSON.parse(json)["results"]
     attunement: item["requires_attunement"]
   )
   end
-# response = RestClient.get "https://www.dnd5eapi.co/api/magic-items/"
-# repos = JSON.parse(response)["results"]
-# ids = repos.sample(10)
-# ids.each do |item|
-#   json = RestClient.get "https://www.dnd5eapi.co/api/magic-items/#{item}"
-#   item_info = JSON.parse(json)
-#   item = MagicItem.create(
-#     name: item["name"],
-#     description: item["desc"]
-#   )
-# end
+
 
 
 

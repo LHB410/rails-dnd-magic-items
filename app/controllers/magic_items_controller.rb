@@ -1,5 +1,5 @@
 class MagicItemsController < ApplicationController
-  before_action :set_magic_item, only:[show, update, edit, destroy]
+  before_action :set_magic_item, only:[:show, :update, :edit, :destroy]
 
   def index
     # @magic_items = render({json: MagicItem.all}) this displays the json file version
@@ -17,7 +17,6 @@ class MagicItemsController < ApplicationController
   end
 
   def show
-    @magic_item = MagicItem.find(params[:id])
   end
 
   def edit
