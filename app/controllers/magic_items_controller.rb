@@ -23,6 +23,17 @@ class MagicItemsController < ApplicationController
   end
 
   def destroy
+    @magic_item.destroy
+    redirect_to magic_items_path
+  end
+
+  def search
+    if params[:search].blank?
+      redirect_to magic_items_path
+    else
+      @parameter = params[:search].downcase
+      @results = MagicItem.all.where("lower(name) LIKE :search", search: "%#{@parameter}%")
+    end
   end
 
   private

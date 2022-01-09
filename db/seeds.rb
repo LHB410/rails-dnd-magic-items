@@ -11,7 +11,7 @@ require "rest-client"
 
 json = RestClient.get 'https://api.open5e.com/magicitems/?format=json'
 item_info = JSON.parse(json)["results"]
-  item_info.first(20).each do |item|
+  item_info.each do |item|
     MagicItem.create(
     name: item["name"],
     description: item["desc"],

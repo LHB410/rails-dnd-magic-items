@@ -1,5 +1,10 @@
 <div class="container">
-  <div>
-  <%= @magic_item %>
+  <div class="show-card">
+    <h2><%= @magic_item.name %></h2>
+    <h3><%= @magic_item.item_type %></h3>
+    <h6><%= @magic_item.rarity.capitalize %></h6>
+    <p><%= @magic_item.description %></p>
+    <h6><%= @magic_item.attunement.capitalize %></h6>
   </div>
+  <%= link_to "Back", magic_items_path,  class: "link" %> || <%= link_to "Delete", @magic_item, method: 'delete', data: { confirm: "Are you sure?" }   %>
 </div>

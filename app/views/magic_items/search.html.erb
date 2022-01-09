@@ -1,0 +1,15 @@
+<div class="container">
+ <h2 class= "pl-4 py-3">Search Results</h2>
+  <% @results.each do |result| %>
+   <div class="card">
+    <h2><%= result.name %></h2>
+    <h3><%= result.item_type %></h3>
+    <h6><%= result.rarity.capitalize %></h6>
+    <p><%= result.description.truncate(300) %></p>
+    <h6><%= result.attunement.capitalize %></h6>
+    <br>
+    <%= link_to "More..", magic_item_path(result), class: "button" %>
+   </div>
+  <% end %>
+
+</div>
