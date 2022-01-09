@@ -2,10 +2,10 @@
  <form>
   <div class="form-group my-4">
     <%= simple_form_for(@magic_item) do |f| %>
-      <%= f.input :name %>
-      <%= f.input :item_type %>
-      <%= f.input :rarity %>
-      <%= f.input :description, :as => :text %>
+      <%= f.input :name, :placeholder => "Item name: Bag of Holding, Wand of Conjuring, etc" %>
+      <%= f.input :item_type, :placeholder => "Item Type: Armor, Wand, Bag, etc" %>
+      <%= f.input :rarity, :placeholder => "Rarity: rare, uncommon, etc" %>
+      <%= f.input :description, :placeholder => "Item description", :as => :text %>
       <%= f.input :attunement, :placeholder => "Requires attunement" %>
       <%= f.submit %>
     <% end %>
