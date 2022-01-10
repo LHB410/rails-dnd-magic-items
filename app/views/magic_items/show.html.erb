@@ -1,10 +1,18 @@
 <div class="container my-4 mb-5 pb-5">
   <div class="show-card">
-    <h2><%= @magic_item.name %></h2>
+    <h2><%= @magic_item.name %>
+    <%= link_to magic_item_path(@magic_item), class: 'link-icon', method: :delete, data: { confirm: "Are you sure?"} do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+    <%= link_to edit_magic_item_path(@magic_item), class: 'link-icon' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %></h2>
     <h3><%= @magic_item.item_type %></h3>
     <h6><%= @magic_item.rarity.capitalize %></h6>
     <p><%= @magic_item.description %></p>
     <h6><%= @magic_item.attunement.capitalize %></h6>
   </div>
-  <%= link_to "Back", magic_items_path,  class: "link" %> || <%= link_to "Delete", @magic_item, method: 'delete', data: { confirm: "Are you sure?" }   %> || <%= link_to "Edit", edit_magic_item_path(@magic_item) %>
+  <%= link_to "Back", magic_items_path, class: 'link' %>
 </div>
+
+
