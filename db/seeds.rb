@@ -7,18 +7,19 @@ require "rest-client"
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-json = RestClient.get 'https://api.open5e.com/magicitems/?format=json'
-item_info = JSON.parse(json)["results"]
-  item_info.each do |item|
-    MagicItem.create(
-    name: item["name"],
-    description: item["desc"],
-    item_type: item["type"],
-    rarity: item["rarity"],
-    attunement: item["requires_attunement"]
-  )
+pages = ['1', '2', '3', '4', '5']
+pages.each do |page|
+  json = RestClient.get "api.open5e.com/magicitems/?format=json&page=#{page}"
+  item_info = JSON.parse(json)["results"]
+    item_info.each do |item|
+      MagicItem.create(
+      name: item["name"],
+      description: item["desc"],
+      item_type: item["type"],
+      rarity: item["rarity"],
+      attunement: item["requires_attunement"]
+    )
+    end
   end
 
 

@@ -2,7 +2,7 @@ class MagicItemsController < ApplicationController
   before_action :set_magic_item, only:[:show, :update, :edit, :destroy]
 
   def index
-    # @magic_items = render({json: MagicItem.all}) this displays the json file version
+    # @magic_items = render({json: MagicItem.all})
     @magic_items = MagicItem.all
   end
 
