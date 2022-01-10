@@ -6,20 +6,25 @@ class MagicItemsController < ApplicationController
     @magic_items = MagicItem.all
   end
 
+  def new
+    @magic_item = MagicItem.new
+  end
+
   def create
     @magic_item = MagicItem.new(magic_item_params)
     @magic_item.save
     redirect_to magic_item_path(@magic_item)
   end
 
-  def new
-    @magic_item = MagicItem.new
-  end
-
   def show
   end
 
   def edit
+  end
+
+  def update
+    @magic_item.update(magic_item_params)
+    redirect_to magic_item_path(@magic_item)
   end
 
   def destroy
@@ -39,7 +44,7 @@ class MagicItemsController < ApplicationController
   private
 
   def magic_item_params
-    params.require(:magic_item).permit(:name, :type, :description, :rarity, :attunement)
+    params.require(:magic_item).permit(:name, :item_type, :description, :rarity, :attunement)
   end
 
   def set_magic_item
